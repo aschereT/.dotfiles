@@ -41,6 +41,7 @@ export plugins=(
     git-auto-fetch
     common-aliases
     ripgrep
+    git
 )
 
 # Path to your oh-my-zsh installation.
