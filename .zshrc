@@ -67,7 +67,13 @@ alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
 alias gitc="git clone --depth=1 --recurse-submodules"
 alias upb='git merge master --no-edit && git push'
 alias gcle='(git reset --hard; git clean -fd)'
+alias l='ls -aFG'
 
 function gacp() {
     git add . && git commit -m $1 && git push
+}
+
+# show dir entries on cd
+function cd() {
+    builtin cd "$@" && l
 }
