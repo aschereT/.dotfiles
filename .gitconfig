@@ -1,0 +1,6 @@
+[user]
+	email = cryptchrysaetos@gmail.com
+	name = Vincent Tan
+[alias]
+	s = status
+	d = diff --ignore-space-at-eol -b -w --ignore-blank-lines
