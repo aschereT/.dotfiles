@@ -1,0 +1,2 @@
+# zshrc
+Custom zshrc build
