@@ -1,3 +1,4 @@
+# [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Uncomment the following line if pasting URLs and other text is messed up.
@@ -13,9 +14,9 @@
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nano'
+    export EDITOR='nano'
 else
-  export EDITOR='code'
+    export EDITOR='code'
 fi
 
 export ZSH_THEME=powerlevel10k/powerlevel10k
@@ -48,7 +49,8 @@ export ZSH="/home/aschere/.oh-my-zsh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-source $HOME/.cargo/env
+
+source $ZSH_CUSTOM/debian.sh
 
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
@@ -65,3 +67,5 @@ function gacp() {
 function cd() {
     builtin cd "$@" && l
 }
+
+source $HOME/.cargo/env
