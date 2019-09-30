@@ -45,7 +45,7 @@ export plugins=(
 )
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/aschere/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source $ZSH/oh-my-zsh.sh
