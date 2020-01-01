@@ -4,7 +4,8 @@ alias gitc='git clone --depth=1 --recurse-submodules -j`nproc`'
 alias gcle='git reset --hard; git clean -fd'
 if ! [ -x "$(command -v rustc)" ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | zsh -s -- --default-toolchain nightly --profile=default -y
-  source $HOME/.cargo/env
+  . $HOME/.cargo/env
+  mkdir ~/.zfunc/
   rustup completions zsh > ~/.zfunc/_rustup
 fi
 rustup self update
