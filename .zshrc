@@ -55,7 +55,7 @@ source $ZSH_CUSTOM/debian.sh
 
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
-alias gitc="git clone --depth=1 --recurse-submodules"
+alias gitc="git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j `nproc`"
 alias upb='git merge master --no-edit && git push'
 alias gcle='(git reset --hard; git clean -fd)'
 alias l='ls -aFG'
