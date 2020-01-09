@@ -1,4 +1,4 @@
-set -e
+#set -e
 
 alias gitc='git clone --depth=1 --recurse-submodules -j`nproc`'
 alias gcle='git reset --hard; git clean -fd'
@@ -16,32 +16,32 @@ mkdir -p $HOME/repos
 cd $HOME/repos
 
 if [ ! -d "fd" ]; then gitc https://github.com/sharkdp/fd.git; fi
-cd fd
-gcle && git pull && git gc --prune=all --aggressive
-cargo update
+cd fd && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
 cargo install -f --all-features --bins --path .
 cd $HOME/repos
 
 if [ ! -d "ripgrep" ]; then gitc https://github.com/BurntSushi/ripgrep.git; fi
-cd ripgrep
-gcle && git pull && git gc --prune=all --aggressive
-cargo update
-sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml
+cd ripgrep && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
+sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
 cargo install -f --features 'simd-accel' --bins --path .
 cd $HOME/repos
 
 if [ ! -d "alacritty" ]; then gitc https://github.com/jwilm/alacritty.git; fi
-cd alacritty
-gcle && git pull && git gc --prune=all --aggressive
-cargo update
-sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml
+cd alacritty && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
+sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
 cargo install -f --all-features --bins --path alacritty
 cd $HOME/repos
 
 if [ ! -d "lsd" ]; then gitc https://github.com/Peltoche/lsd.git; fi
-cd lsd
-gcle && git pull && git gc --prune=all --aggressive
-cargo update
+cd lsd && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
 cargo install -f --all-features --bins --path .
 # echo "alias ls='lsd'" >> $HOME/.zshrc
 cd $HOME/repos
