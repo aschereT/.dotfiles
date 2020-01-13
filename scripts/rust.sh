@@ -11,7 +11,7 @@ fi
 rustup self update
 rustup update
 
-export RUSTFLAGS="-C target-cpu=native"
+#export RUSTFLAGS="-C target-cpu=native -C target-feature=-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vl"
 mkdir -p $HOME/repos
 cd $HOME/repos
 
