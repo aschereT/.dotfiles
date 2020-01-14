@@ -1,10 +1,18 @@
 [user]
-	email = cryptchrysaetos@gmail.com
-	name = Vincent Tan
+email = vincent@cto.ai
+name = Vincent Tan
+signingkey = F36B6B000C7E15B4911CA9B1A3E4D7FF986CF7B7
+[commit]
+gpgsign = true
 [alias]
-	s = status
-	d = diff --ignore-space-at-eol -b -w --ignore-blank-lines
-[core]
-	editor = nano
+s = status
+d = diff --ignore-space-at-eol -b -w --ignore-blank-lines
+unstage = reset HEAD
+undo-commit = reset --soft HEAD^
+lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [format]
-	signoff = true
+signOff = true
+[help]
+autocorrect = 1
+[core]
+editor = nano
