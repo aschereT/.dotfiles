@@ -8,6 +8,7 @@ if ! [ -x "$(command -v rustc)" ]; then
   mkdir ~/.zfunc/
   rustup completions zsh > ~/.zfunc/_rustup
 fi
+rustup default nightly
 rustup self update
 rustup update
 
