@@ -51,7 +51,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-source $ZSH_CUSTOM/debian.sh
+source $ZSH_CUSTOM/scripts/debian.sh
 
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
@@ -69,4 +69,4 @@ function cd() {
     builtin cd "$@" && l
 }
 
-source $HOME/.cargo/env
+[[ -f $HOME/.cargo/env ]] && source $HOME/.cargo/env
