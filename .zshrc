@@ -45,17 +45,17 @@ export plugins=(
 )
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-source $ZSH_CUSTOM/scripts/debian.sh
+# source $ZSH_CUSTOM/scripts/debian.sh
 
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
-alias gitc="git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j `nproc`"
+alias gitc="git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j $(nproc)"
 alias upb='git merge master --no-edit && git push'
 alias gcle='(git reset --hard; git clean -fd)'
 alias l='ls -aFG'

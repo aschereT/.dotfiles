@@ -9,4 +9,4 @@ git submodule update --init --recursive && git submodule update --remote --merge
 # gitc https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # gitc https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 cd $HOME && gitc https://github.com/gpakosz/.tmux.git && ln -s -f .tmux/.tmux.conf && cp .tmux/.tmux.conf.local .
-curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | zsh
+curl -s https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | zsh
