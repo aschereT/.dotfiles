@@ -1,5 +1,6 @@
 alias gitc='git clone --depth=1 --recurse-submodules -j`nproc`'
 
+git submodule update --init --recursive && git submodule update --remote --merge
 [ -f ~/.zshrc ] && rm -f ~/.zshrc; ln -s ~/.oh-my-zsh/custom/.zshrc ~/.zshrc
 [ -f ~/.gitconfig ] && rm -f ~/.gitconfig; ln -s ~/.oh-my-zsh/custom/.gitconfig ~/.gitconfig
 mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes
