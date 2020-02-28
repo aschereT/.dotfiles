@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -56,9 +63,17 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias zshconfig="$EDITOR ~/.zshrc && source ~/.zshrc"
 alias gitc="git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j $(nproc)"
-alias upb='git merge master --no-edit && git push'
+upb () {
+    if [[ $(git diff --stat) != '' ]]; then
+        echo 'dirty, cancelling'
+    else
+        local CURRENTBRANCH=$(git rev-parse --abbrev-ref HEAD)
+        git checkout master && git pull && git checkout $CURRENTBRANCH && git rebase master && git push --force-with-lease
+    fi
+}
 alias gcle='(git reset --hard; git clean -fd)'
-alias l='ls -aFG'
+alias l='lsd --group-dirs first -AF'
+alias nv='nano --view -x -R -l'
 
 function gacp() {
     git add . && git commit -m $1 && git push
@@ -70,3 +85,13 @@ function cd() {
 }
 
 [[ -f $HOME/.cargo/env ]] && source $HOME/.cargo/env
+
+cleanGit() {
+    fd -uu -t 'd' '^\.git$' 2>/dev/null | while read bn; do
+        bash -c "cd $bn/.. && git pull && git remote prune origin && git tag -l | xargs git tag -d && git fetch --tags && git gc --prune=all --aggressive"
+    done
+}
+dr() {
+    docker run --rm -dt --name $(echo $1 | tr -dC '[:alpha:]') $1 >/dev/null && docker exec -it $(echo $1 | tr -dC '[:alpha:]') ${2:-sh}
+    docker kill $(echo $1 | tr -dC '[:alpha:]') >/dev/null
+}
