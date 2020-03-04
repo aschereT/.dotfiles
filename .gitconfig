@@ -15,4 +15,4 @@ signOff = true
 [help]
 autocorrect = 1
 [core]
-editor = nano
+editor = vim
