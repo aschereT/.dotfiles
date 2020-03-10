@@ -42,8 +42,9 @@ export COMPLETION_WAITING_DOTS="true"
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 export plugins=(
-    zsh-syntax-highlighting
+    autoupdate
     zsh-autosuggestions
+    fast-syntax-highlighting
     colored-man-pages
     extract
     git-auto-fetch
