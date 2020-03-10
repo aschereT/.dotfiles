@@ -14,3 +14,7 @@
 	path = plugins/autoupdate
 	url = https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
 	shallow = true
+[submodule "plugins/fast-syntax-highlighting"]
+	path = plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma/fast-syntax-highlighting.git
+	shallow = true
