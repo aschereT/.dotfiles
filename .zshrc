@@ -20,11 +20,12 @@ fi
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='nano'
-else
-    export EDITOR='code'
-fi
+export EDITOR=vim
+#if [[ -n $SSH_CONNECTION ]]; then
+#    export EDITOR='nano'
+#else
+#    export EDITOR='code'
+#fi
 
 export ZSH_THEME=powerlevel10k/powerlevel10k
 export DISABLE_UPDATE_PROMPT="true"
