@@ -10,3 +10,7 @@
 	path = themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
 	shallow = true
+[submodule "plugins/autoupdate"]
+	path = plugins/autoupdate
+	url = https://github.com/TamCore/autoupdate-oh-my-zsh-plugins.git
+	shallow = true
