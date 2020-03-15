@@ -19,11 +19,13 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Pull submodules
-      run: "git submodule update --init --recursive"
-    
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@master
+      with:
+        remote: true 
+
     - name: Update submodules
-      run: "git submodule foreach --recursive --quiet pwd | xargs -P10 -I{} bash -c 'cd {}; git checkout master && git pull && git remote prune origin && git tag -l | xargs git tag -d && git fetch origin master && git gc --prune=all --aggressive'"
+      run: "git submodule foreach --recursive --quiet pwd | xargs -P10 -I{} bash -c 'cd {}; git checkout master && git pull'"
     
     - name: Push changes, if any
       run: "git config user.email 'actions@github.com' && git config user.name 'GitHub Actions' && git add . && git commit -m 'Update submodules' && git push"
