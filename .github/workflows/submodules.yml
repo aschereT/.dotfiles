@@ -19,10 +19,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@master
-      with:
-        remote: true 
+    - name: Pull submodules
+      run: "git submodule update --init --recursive"
 
     - name: Update submodules
       run: "git submodule foreach --recursive --quiet pwd | xargs -P10 -I{} bash -c 'cd {}; git checkout master && git pull'"
