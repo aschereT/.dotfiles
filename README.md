@@ -10,5 +10,5 @@ Custom zshrc build
 - Install `oh-my-zsh` https://github.com/ohmyzsh/ohmyzsh
 - `rm -r ~/.oh-my-zsh/custom`
 - `git clone --depth=1 --recurse-submodules git@github.com:aschereT/.zshrccust.git ~/.oh-my-zsh/custom`
-- Install Meslo fonts: `https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S/Regular`
+- Install Meslo fonts: `https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S/Regular/complete`
 - `cd ~/.oh-my-zsh/custom/scripts && ./init.sh`
