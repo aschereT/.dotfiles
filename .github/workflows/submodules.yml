@@ -26,4 +26,4 @@ jobs:
       run: "git submodule foreach --recursive --quiet pwd | xargs -P10 -I{} bash -c 'cd {}; git checkout master && git pull'"
     
     - name: Push changes, if any
-      run: "git config user.email 'actions@github.com' && git config user.name 'GitHub Actions' && git add . && git commit -m 'Update submodules' && git push"
+      run: "git config user.email 'actions@github.com' && git config user.name 'GitHub Actions';[[ -z $(git status -s) ]] || git add . && git commit -m 'Update submodules' && git push"
