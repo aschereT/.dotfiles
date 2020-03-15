@@ -1,6 +1,6 @@
+![Update submodules](https://github.com/aschereT/.zshrccust/workflows/Update%20submodules/badge.svg)
 # zshrc
 Custom zshrc build
-
 
 # Steps
 
