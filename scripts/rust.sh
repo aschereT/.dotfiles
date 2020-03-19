@@ -46,3 +46,11 @@ cargo update && \
 cargo install -f --all-features --bins --path .
 # echo "alias ls='lsd'" >> $HOME/.zshrc
 cd $HOME/repos
+
+if [ ! -d "bat" ]; then gitc https://github.com/sharkdp/bat.git; fi
+cd bat && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
+sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
+cargo install -f --all-features --bins --path .
+cd $HOME/repos
