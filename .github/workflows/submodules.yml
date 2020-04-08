@@ -24,6 +24,11 @@ jobs:
 
     - name: Update submodules
       run: "git submodule foreach --recursive --quiet pwd | xargs -P10 -I{} bash -c 'cd {}; git checkout master && git pull'"
-    
-    - name: Push changes, if any
-      run: "git config user.email 'actions@github.com' && git config user.name 'GitHub Actions';[[ -z $(git status -s) ]] || git add . && git commit -m 'Update submodules' && git push"
+
+    - uses: stefanzweifel/git-auto-commit-action@v4.1.2
+      with:
+        commit_message: Update submodules
+        commit_options: '--no-verify --signoff'
+        commit_user_name: GitHub Actions
+        commit_user_email: actions@github.com
+        commit_author: GitHub Actions <actions@github.com>
