@@ -13,6 +13,7 @@ rustup self update
 rustup update
 
 #export RUSTFLAGS="-C target-cpu=native -C target-feature=-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vl"
+export RUSTFLAGS="-C opt-level=3 -C target-cpu=native"
 mkdir -p $HOME/repos
 cd $HOME/repos
 
@@ -21,22 +22,16 @@ cd fd && \
 gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 cargo install -f --all-features --bins --path .
+cargo clean
 cd $HOME/repos
 
 if [ ! -d "ripgrep" ]; then gitc https://github.com/BurntSushi/ripgrep.git; fi
 cd ripgrep && \
 gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
-sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
+cat Cargo.toml | sed "s/debug = 1/debug = 0/g" > Cargo.toml2 && mv Cargo.toml2 Cargo.toml && \
 cargo install -f --features 'simd-accel' --bins --path .
-cd $HOME/repos
-
-if [ ! -d "alacritty" ]; then gitc https://github.com/jwilm/alacritty.git; fi
-cd alacritty && \
-gcle && git pull && git gc --prune=all --aggressive && \
-cargo update && \
-sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
-cargo install -f --all-features --bins --path alacritty
+cargo clean
 cd $HOME/repos
 
 if [ ! -d "lsd" ]; then gitc https://github.com/Peltoche/lsd.git; fi
@@ -44,7 +39,7 @@ cd lsd && \
 gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 cargo install -f --all-features --bins --path .
-# echo "alias ls='lsd'" >> $HOME/.zshrc
+cargo clean
 cd $HOME/repos
 
 if [ ! -d "bat" ]; then gitc https://github.com/sharkdp/bat.git; fi
@@ -53,4 +48,12 @@ gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
 cargo install -f --all-features --bins --path .
+cd $HOME/repos
+if [ ! -d "exa" ]; then gitc https://github.com/ogham/exa.git; fi
+
+cd exa && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
+cargo install -f --all-features --bins --path .
+cargo clean
 cd $HOME/repos
