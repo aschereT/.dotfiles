@@ -72,7 +72,7 @@ export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# source $ZSH_CUSTOM/scripts/debian.sh
+# source $ZSH_CUSTOM/scripts/debian/debian.sh
 export GOPATH="$HOME/go"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 [[ -f $HOME/.cargo/env ]] && source $HOME/.cargo/env
