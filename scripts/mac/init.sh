@@ -1,0 +1,1 @@
+sudo zsh -c "echo 'sysctl -n hw.logicalcpu' > /usr/local/bin/nproc; chmod +x /usr/local/bin/nproc"

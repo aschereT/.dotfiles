@@ -1,6 +1,6 @@
 #set -e
 
-alias gitc='git clone --depth=1 --recurse-submodules -j`nproc`'
+alias gitc='git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j$(nproc)'
 alias gcle='git reset --hard; git clean -fd'
 if ! [ -x "$(command -v rustc)" ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | zsh -s -- --default-toolchain nightly --profile=default -y
@@ -22,7 +22,6 @@ cd fd && \
 gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 cargo install -f --all-features --bins --path .
-cargo clean
 cd $HOME/repos
 
 if [ ! -d "ripgrep" ]; then gitc https://github.com/BurntSushi/ripgrep.git; fi
@@ -31,7 +30,6 @@ gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 cat Cargo.toml | sed "s/debug = 1/debug = 0/g" > Cargo.toml2 && mv Cargo.toml2 Cargo.toml && \
 cargo install -f --features 'simd-accel' --bins --path .
-cargo clean
 cd $HOME/repos
 
 if [ ! -d "lsd" ]; then gitc https://github.com/Peltoche/lsd.git; fi
@@ -39,7 +37,6 @@ cd lsd && \
 gcle && git pull && git gc --prune=all --aggressive && \
 cargo update && \
 cargo install -f --all-features --bins --path .
-cargo clean
 cd $HOME/repos
 
 if [ ! -d "bat" ]; then gitc https://github.com/sharkdp/bat.git; fi
@@ -49,11 +46,4 @@ cargo update && \
 sed --in-place "s/debug = 1/debug = 0/g" Cargo.toml && \
 cargo install -f --all-features --bins --path .
 cd $HOME/repos
-if [ ! -d "exa" ]; then gitc https://github.com/ogham/exa.git; fi
 
-cd exa && \
-gcle && git pull && git gc --prune=all --aggressive && \
-cargo update && \
-cargo install -f --all-features --bins --path .
-cargo clean
-cd $HOME/repos
