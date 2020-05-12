@@ -1,7 +1,7 @@
 [user]
-email = vincent@cto.ai
+email = vincent@example.com
 name = Vincent Tan
-signingkey = F36B6B000C7E15B4911CA9B1A3E4D7FF986CF7B7
+signingkey = 
 [commit]
 gpgsign = true
 [alias]
@@ -15,4 +15,4 @@ signOff = true
 [help]
 autocorrect = 1
 [core]
-editor = vim
+editor = nvim
