@@ -20,7 +20,7 @@ ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
 gpg --full-gen-key --expert
 ```
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
 rm -r ~/.oh-my-zsh/custom && \
 git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git ~/.oh-my-zsh/custom && \
 cd ~/.oh-my-zsh/custom/scripts && ./init.sh
