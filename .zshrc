@@ -61,6 +61,7 @@ export plugins=(
     extract
     git-auto-fetch
     common-aliases
+    common-aliases-patch
     ripgrep
     git
 )
