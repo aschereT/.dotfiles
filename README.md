@@ -21,7 +21,7 @@ gpg --full-gen-key --expert
 ```
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
-rm -r ~/.dotfiles && \
+rm -rf ~/.dotfiles;
 git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git  ~/.dotfiles && \
-cd  ~/.dotfiles/scripts && ./init.sh
+cd ~/.dotfiles/scripts && ./init.sh
 ```
