@@ -8,8 +8,8 @@ Custom zshrc build
   - `sudo apt update && sudo apt upgrade && sudo apt install git zsh`
 - `ssh-keygen -t ed25519`
 - Install `oh-my-zsh` https://github.com/ohmyzsh/ohmyzsh
-- `rm -r ~/.oh-my-zsh/custom`
-- `git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git ~/.oh-my-zsh/custom`
+- `rm -rf ~/.dotfiles`
+- `git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git ~/.dotfiles`
 - Install Meslo fonts: `https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/S/Regular/complete`
 - `cd ~/.oh-my-zsh/custom/scripts && ./init.sh`
 - `nvim` and then `:PlugInstall`
@@ -21,7 +21,7 @@ gpg --full-gen-key --expert
 ```
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
-rm -r ~/.oh-my-zsh/custom && \
-git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git ~/.oh-my-zsh/custom && \
-cd ~/.oh-my-zsh/custom/scripts && ./init.sh
+rm -r ~/.dotfiles && \
+git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch git@github.com:aschereT/.zshrccust.git  ~/.dotfiles && \
+cd  ~/.dotfiles/scripts && ./init.sh
 ```
