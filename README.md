@@ -19,6 +19,13 @@ Custom zshrc build
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
 gpg --full-gen-key --expert
 ```
+
+```
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage && \
+chmod u+x nvim.appimage && \
+mv nvim.appimage /usr/local/bin/nvim
+```
+
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
 rm -rf ~/.dotfiles || true && \
