@@ -106,7 +106,7 @@ function cd() {
 }
 
 function cleanGit() {
-    fd -uu -t 'd' '^\.git$' 2>/dev/null | while read bn; do
+    fd -uu -t 'd' '^\.git$' 2>/dev/null | while read -r bn; do
         bash -c "cd $bn/.. && git pull && git remote prune origin && git tag -l | xargs git tag -d && git fetch --tags && git gc --prune=all --aggressive"
     done
 }
