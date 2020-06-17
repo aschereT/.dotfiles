@@ -16,3 +16,7 @@ signOff = true
 autocorrect = 1
 [core]
 editor = nvim
+[pull]
+rebase = true
+[rebase]
+autoStash = true
