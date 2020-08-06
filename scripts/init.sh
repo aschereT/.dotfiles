@@ -1,10 +1,8 @@
-alias gitc='git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j$(nproc)'
-
 git submodule update --init --recursive && git submodule update --remote --merge
 [ -f "$HOME"/.zshrc ] && rm -f "$HOME/.zshrc"; ln -s "$HOME"/.dotfiles/.zshrc "$HOME"/.zshrc
 [ -f "$HOME"/.gitconfig ] && rm -f "$HOME"/.gitconfig; cp "$HOME"/.dotfiles/.gitconfig "$HOME"/.gitconfig
 [ -f "$HOME"/.p10k.zsh ] && rm -f "$HOME"/.p10k.zsh; ln -s "$HOME"/.dotfiles/other-configs/.p10k.zsh "$HOME"/.p10k.zsh
-cd "$HOME" && gitc https://github.com/gpakosz/.tmux.git && ln -s -f .tmux/.tmux.conf . && cp .tmux/.tmux.conf.local .
+cd "$HOME" && git clone --depth=1 --recurse-submodules --shallow-submodules --single-branch -j$(nproc) https://github.com/gpakosz/.tmux.git && ln -s -f .tmux/.tmux.conf . && cp .tmux/.tmux.conf.local .
 curl -s https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | zsh
 
 #neovim setup
