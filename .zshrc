@@ -26,7 +26,7 @@ export EDITOR=nvim
 
 function upbrew() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        brew update && brew upgrade  && brew cask upgrade && brew cleanup
+        brew update && brew upgrade  && brew upgrade --cask && brew cleanup
         #local LATEST_NPM=$(npm --version)
         #nvm install node --reinstall-packages-from=node --latest-npm
         #nvm use node
