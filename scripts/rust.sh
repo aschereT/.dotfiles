@@ -39,10 +39,3 @@ cargo update && \
 cargo install -f --all-features --bins --path .
 cd "$HOME"/repos || exit
 
-if [ ! -d "bat" ]; then gitc https://github.com/sharkdp/bat.git; fi
-cd bat && \
-gcle && git pull && git gc --prune=all --aggressive && \
-cargo update && \
-sed "s/debug = 1/debug = 0/g" < Cargo.toml > Cargo.toml2 && mv Cargo.toml2 Cargo.toml && \
-cargo install -f --all-features --bins --path .
-cd "$HOME"/repos || exit
