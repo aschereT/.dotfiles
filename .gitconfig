@@ -20,3 +20,5 @@ editor = nvim
 rebase = true
 [rebase]
 autoStash = true
+[push]
+gpgSign = if-asked
