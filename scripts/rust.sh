@@ -39,3 +39,10 @@ cargo update && \
 cargo install -f --all-features --bins --path .
 cd "$HOME"/repos || exit
 
+if [ ! -d "delta" ]; then gitc https://github.com/dandavison/delta.git; fi
+cd delta && \
+gcle && git pull && git gc --prune=all --aggressive && \
+cargo update && \
+cargo install -f --all-features --bins --path .
+cd "$HOME"/repos || exit
+
